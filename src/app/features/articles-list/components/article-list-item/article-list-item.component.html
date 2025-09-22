@@ -1,0 +1,17 @@
+<div
+  class="w-full border border-gray p-4 rounded-xl flex items-center justify-between gap-4 cursor-pointer hover:bg-gray-100"
+>
+  <div class="w-20 h-20 bg-gray rounded-2xl flex-grow-0 flex-shrink"></div>
+  <div class="flex flex-col gap-2 flex-grow">
+    <h3 class="font-semibold text-xl">{{ article().title }}</h3>
+    <div>{{ article().description }}</div>
+    <div class="flex gap-4">
+      @for(tag of article().tags; track tag.id) {
+      <art-pill [option]="tag" size="sm" />
+      }
+    </div>
+  </div>
+  <art-button class="flex-grow-0 flex-shrink" variant="tertiary">
+    <lucide-angular [img]="SquarePen" size="20"></lucide-angular>
+  </art-button>
+</div>

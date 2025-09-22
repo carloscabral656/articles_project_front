@@ -1,0 +1,31 @@
+@if(label()) {
+<label [for]="label()" class="font-semibold">{{ label() }}</label>
+}
+<div class="px-4 py-2 bg-gray rounded-xl flex items-center gap-2">
+  <input
+    [id]="label()"
+    [type]="typeSig()"
+    class="bg-transparent outline-none flex-grow"
+    [placeholder]="placeholder()"
+    [value]="value"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
+    [disabled]="disabled"
+  />
+
+  @if(type() === "password") {
+  <lucide-angular
+    (click)="changePasswordVisibility()"
+    class="cursor-pointer flex-shrink flex-grow-0"
+    [img]="visibilityIcon()"
+    [size]="16"
+  ></lucide-angular>
+  } @else { @if(value) {
+  <lucide-angular
+    (click)="resetValue()"
+    class="cursor-pointer flex-shrink flex-grow-0"
+    [img]="CircleX"
+    [size]="16"
+  ></lucide-angular>
+  } }
+</div>

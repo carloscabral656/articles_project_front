@@ -1,0 +1,12 @@
+<div class="flex flex-col gap-4">
+  @for(article of articles(); track article.id) {
+  <art-articles-list-item [article]="article" />
+  }
+</div>
+<div>
+  <art-pagination
+    [page]="articlesPagination().page"
+    [total]="articlesPagination().total"
+    [pageSize]="10"
+  />
+</div>
