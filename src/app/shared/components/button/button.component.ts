@@ -1,11 +1,12 @@
-import { Component, input, Input } from '@angular/core';
-import { buttonStyles, ButtonProps } from './button.variants.js';
 import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
+import { ButtonProps, buttonStyles } from './button.variants.js';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'art-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: 'button.component.html',
 })
 export class ButtonComponent {

@@ -1,9 +1,9 @@
 <header
-  class="px-10 w-[calc(100vw-16px)] h-20 flex items-center justify-between fixed bg-white"
+  class="px-10 w-[100vw] h-20 flex items-center justify-between fixed bg-white border-b-2"
 >
   <div>
     <art-app-name class="cursor-pointer" (click)="redirectToHome()" />
   </div>
 
-  <art-button variant="tertiary">Entrar</art-button>
+  <art-button variant="tertiary" (click)="redirectToLogin()">Entrar</art-button>
 </header>

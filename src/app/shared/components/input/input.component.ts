@@ -1,20 +1,21 @@
-import { Component, forwardRef, input, signal, computed } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  Component,
+  computed,
+  input,
+  Optional,
+  Self,
+  signal,
+} from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { Eye, EyeClosed, LucideAngularModule, X } from 'lucide-angular';
+import { FormErrorComponent } from '../forms/form-error/form-error.component';
 
 @Component({
   selector: 'art-input',
   standalone: true,
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, FormErrorComponent],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
-      multi: true,
-    },
-  ],
 })
 export class InputComponent implements ControlValueAccessor {
   readonly placeholder = input<string>('');
@@ -41,15 +42,24 @@ export class InputComponent implements ControlValueAccessor {
   private onChange: (value: any) => void = () => {};
   private onTouched: () => void = () => {};
 
+  constructor(@Optional() @Self() public ngControl: NgControl) {
+    if (this.ngControl) {
+      this.ngControl.valueAccessor = this;
+    }
+  }
+
   writeValue(value: any): void {
     this.innerValue = value || '';
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
@@ -59,6 +69,7 @@ export class InputComponent implements ControlValueAccessor {
     this.innerValue = value;
     this.onChange(value);
   }
+
   onBlur(): void {
     this.onTouched();
   }
@@ -78,5 +89,28 @@ export class InputComponent implements ControlValueAccessor {
 
   get value() {
     return this.innerValue;
+  }
+
+  get errors() {
+    return this.ngControl?.control?.errors;
+  }
+
+  get required() {
+    return !!this.errors?.['required'];
+  }
+
+  get isRequiredValidator(): boolean {
+    const validator = this.ngControl?.control?.validator;
+    if (!validator) return false;
+
+    const result = validator({} as any);
+    return !!result?.['required'];
+  }
+
+  get invalid() {
+    return (
+      this.ngControl?.invalid &&
+      (this.ngControl?.touched || this.ngControl?.dirty)
+    );
   }
 }

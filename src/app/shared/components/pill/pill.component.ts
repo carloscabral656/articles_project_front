@@ -13,10 +13,12 @@ import { CommonModule } from '@angular/common';
 export class PillComponent {
   option = input.required<PillOption>();
   size = input<'sm' | 'md' | 'lg'>('md');
+  isSelected = input<boolean>(false);
 
   get classes(): string {
     return tagStyles({
       size: this.size(),
+      isSelected: this.isSelected(),
     });
   }
 }

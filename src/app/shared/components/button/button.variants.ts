@@ -15,7 +15,7 @@ export const buttonStyles = cva(
         lg: 'text-lg',
       },
       disabled: {
-        true: 'opacity-50 cursor-not-allowed',
+        true: 'opacity-50 cursor-not-allowed hover:opacity-50',
         false: '',
       },
       full: {

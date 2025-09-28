@@ -1,0 +1,14 @@
+<div
+  class="flex gap-2 items-center justify-start font-medium cursor-pointer !w-fit"
+  (click)="toogleChecked()"
+>
+  <div
+    class="h-5 w-5 border cursor-pointer flex items-center justify-center text-white"
+    [ngClass]="{ 'bg-primary': isChecked() || alreadyChecked() }"
+  >
+    @if(isChecked() || alreadyChecked()) {
+    <lucide-angular [img]="Check" [size]="16"></lucide-angular>
+    }
+  </div>
+  <span>{{ label() }}</span>
+</div>

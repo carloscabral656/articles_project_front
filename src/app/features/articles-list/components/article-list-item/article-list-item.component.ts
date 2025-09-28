@@ -3,6 +3,7 @@ import { Article } from '../../../../shared/types/article.type';
 import { PillComponent } from '../../../../shared/components/pill/pill.component';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { LucideAngularModule, SquarePen } from 'lucide-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'art-articles-list-item',
@@ -15,4 +16,14 @@ export class ArticleListItemComponent {
   article = input.required<Article>();
 
   readonly SquarePen = SquarePen;
+
+  constructor(private readonly router: Router) {}
+
+  redirectToEditArticle() {
+    this.router.navigateByUrl('articles-edit');
+  }
+
+  redirectToReadArticle() {
+    this.router.navigateByUrl('read-article');
+  }
 }

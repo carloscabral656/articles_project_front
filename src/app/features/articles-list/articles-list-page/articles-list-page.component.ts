@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { InputComponent } from '../../../shared/components/input/input.component';
 import { ListPillComponent } from '../../../shared/components/list-pill/list-pill.component';
@@ -6,6 +6,17 @@ import { Article } from '../../../shared/types/article.type';
 import { Pagination } from '../../../shared/types/pagination.type';
 import { PillOption } from '../../../shared/types/pill-option.type';
 import { ArticlesListComponent } from '../components/articles-list/articles-list.component';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { debounceTime, tap } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ArrowRightSquare } from 'lucide-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'art-articles-list-page',
@@ -13,10 +24,13 @@ import { ArticlesListComponent } from '../components/articles-list/articles-list
   templateUrl: './articles-list-page.component.html',
   styleUrl: './articles-list-page.component.scss',
   imports: [
+    CommonModule,
     ButtonComponent,
     ListPillComponent,
     InputComponent,
     ArticlesListComponent,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class ArticlesListPage {
@@ -26,32 +40,32 @@ export class ArticlesListPage {
       value: 'Front-end',
     },
     {
-      id: 1,
-      value: 'Front-end',
+      id: 2,
+      value: 'Back-end',
     },
     {
-      id: 1,
-      value: 'Front-end',
+      id: 3,
+      value: 'Mobile',
     },
     {
-      id: 1,
-      value: 'Front-end',
+      id: 4,
+      value: 'UI/UX',
     },
     {
-      id: 1,
-      value: 'Front-end',
+      id: 5,
+      value: 'DevOps',
     },
     {
-      id: 1,
-      value: 'Front-end',
+      id: 6,
+      value: 'Data Science',
     },
     {
-      id: 1,
-      value: 'Front-end',
+      id: 7,
+      value: 'Cybersecurity',
     },
     {
-      id: 1,
-      value: 'Front-end',
+      id: 8,
+      value: 'AI & Machine Learning',
     },
   ]);
 
@@ -103,4 +117,32 @@ export class ArticlesListPage {
       3 // tamanho da página
     )
   );
+
+  fb = inject(FormBuilder);
+  destroyRef = inject(DestroyRef);
+
+  searchArticlesForm = this.fb.group({
+    pills: [[]],
+    search: '',
+  });
+
+  constructor(private readonly router: Router) {
+    this.initFormValueChanges();
+  }
+
+  initFormValueChanges() {
+    this.searchArticlesForm.valueChanges
+      .pipe(
+        debounceTime(500),
+        tap((e) => {
+          console.log(e);
+        }),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe();
+  }
+
+  redirectToCreateArticle() {
+    this.router.navigateByUrl('articles-create');
+  }
 }
