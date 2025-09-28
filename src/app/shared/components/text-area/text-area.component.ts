@@ -5,11 +5,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { FormErrorComponent } from '../forms/form-error/form-error.component';
 
 @Component({
-  selector: 'art-text-area',
-  standalone: true,
-  templateUrl: './text-area.component.html',
-  styleUrl: './text-area.component.scss',
-  imports: [LucideAngularModule, FormErrorComponent],
+    selector: 'art-text-area',
+    templateUrl: './text-area.component.html',
+    styleUrl: './text-area.component.scss',
+    imports: [LucideAngularModule, FormErrorComponent]
 })
 export class TextAreaComponent implements ControlValueAccessor {
   readonly placeholder = input<string>('');

@@ -3,11 +3,10 @@ import { ChevronRight, LucideAngularModule } from 'lucide-angular';
 import { ChevronLeft } from 'lucide-angular/src/icons';
 
 @Component({
-  selector: 'art-pagination',
-  standalone: true,
-  templateUrl: './pagination.component.html',
-  styleUrl: './pagination.component.scss',
-  imports: [LucideAngularModule],
+    selector: 'art-pagination',
+    templateUrl: './pagination.component.html',
+    styleUrl: './pagination.component.scss',
+    imports: [LucideAngularModule]
 })
 export class PaginationComponent {
   page = input<number>(1);

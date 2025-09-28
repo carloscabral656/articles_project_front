@@ -6,11 +6,10 @@ import { LucideAngularModule, SquarePen } from 'lucide-angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'art-articles-list-item',
-  standalone: true,
-  templateUrl: './article-list-item.component.html',
-  styleUrl: './article-list-item.component.scss',
-  imports: [PillComponent, ButtonComponent, LucideAngularModule],
+    selector: 'art-articles-list-item',
+    templateUrl: './article-list-item.component.html',
+    styleUrl: './article-list-item.component.scss',
+    imports: [PillComponent, ButtonComponent, LucideAngularModule]
 })
 export class ArticleListItemComponent {
   article = input.required<Article>();

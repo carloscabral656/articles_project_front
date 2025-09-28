@@ -11,11 +11,10 @@ import { Eye, EyeClosed, LucideAngularModule, X } from 'lucide-angular';
 import { FormErrorComponent } from '../forms/form-error/form-error.component';
 
 @Component({
-  selector: 'art-input',
-  standalone: true,
-  imports: [LucideAngularModule, FormErrorComponent],
-  templateUrl: './input.component.html',
-  styleUrl: './input.component.scss',
+    selector: 'art-input',
+    imports: [LucideAngularModule, FormErrorComponent],
+    templateUrl: './input.component.html',
+    styleUrl: './input.component.scss'
 })
 export class InputComponent implements ControlValueAccessor {
   readonly placeholder = input<string>('');

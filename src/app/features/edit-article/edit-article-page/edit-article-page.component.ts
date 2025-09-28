@@ -15,20 +15,19 @@ import { ArrowBigLeft, LucideAngularModule, Plus } from 'lucide-angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'art-edit-article-page',
-  standalone: true,
-  templateUrl: './edit-article-page.component.html',
-  styleUrl: './edit-article-page.component.scss',
-  imports: [
-    CommonModule,
-    ButtonComponent,
-    InputComponent,
-    ListPillComponent,
-    TextAreaComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    LucideAngularModule,
-  ],
+    selector: 'art-edit-article-page',
+    templateUrl: './edit-article-page.component.html',
+    styleUrl: './edit-article-page.component.scss',
+    imports: [
+        CommonModule,
+        ButtonComponent,
+        InputComponent,
+        ListPillComponent,
+        TextAreaComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        LucideAngularModule,
+    ]
 })
 export class EditArticlePage {
   articleTypes = signal<PillOption[]>([

@@ -9,19 +9,18 @@ import { TextAreaComponent } from '../../../shared/components/text-area/text-are
 import { ArticleCommentsListComponent } from '../components/article-comments-list/article-comments-list.component';
 
 @Component({
-  selector: 'art-read-article-page',
-  standalone: true,
-  templateUrl: './read-article-page.component.html',
-  styleUrl: './read-article-page.component.scss',
-  imports: [
-    CommonModule,
-    ButtonComponent,
-    ListPillComponent,
-    InputComponent,
-    ArticlePublicationInfo,
-    TextAreaComponent,
-    ArticleCommentsListComponent,
-  ],
+    selector: 'art-read-article-page',
+    templateUrl: './read-article-page.component.html',
+    styleUrl: './read-article-page.component.scss',
+    imports: [
+        CommonModule,
+        ButtonComponent,
+        ListPillComponent,
+        InputComponent,
+        ArticlePublicationInfo,
+        TextAreaComponent,
+        ArticleCommentsListComponent,
+    ]
 })
 export class ReadArticlePage {
   articleTypes = signal<PillOption[]>([

@@ -4,11 +4,10 @@ import { LucideAngularModule, Reply, Trash2 } from 'lucide-angular';
 import { UserAcronimyComponent } from '../../../../shared/components/user-acronimy/user-acronimy.component';
 
 @Component({
-  selector: 'art-article-comment',
-  standalone: true,
-  templateUrl: './article-comment.component.html',
-  styleUrl: './article-comment.component.scss',
-  imports: [CommonModule, LucideAngularModule, UserAcronimyComponent],
+    selector: 'art-article-comment',
+    templateUrl: './article-comment.component.html',
+    styleUrl: './article-comment.component.scss',
+    imports: [CommonModule, LucideAngularModule, UserAcronimyComponent]
 })
 export class ArticleCommentComponent {
   readonly Reply = Reply;

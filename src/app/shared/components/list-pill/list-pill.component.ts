@@ -15,16 +15,15 @@ import { FormErrorComponent } from '../forms/form-error/form-error.component';
 import { ButtonCheckComponent } from '../forms/button-check/button-check.component';
 
 @Component({
-  selector: 'art-list-pill',
-  standalone: true,
-  imports: [
-    PillComponent,
-    LucideAngularModule,
-    FormErrorComponent,
-    ButtonCheckComponent,
-  ],
-  templateUrl: './list-pill.component.html',
-  styleUrl: './list-pill.component.scss',
+    selector: 'art-list-pill',
+    imports: [
+        PillComponent,
+        LucideAngularModule,
+        FormErrorComponent,
+        ButtonCheckComponent,
+    ],
+    templateUrl: './list-pill.component.html',
+    styleUrl: './list-pill.component.scss'
 })
 export class ListPillComponent implements ControlValueAccessor {
   options = input.required<PillOption[]>();

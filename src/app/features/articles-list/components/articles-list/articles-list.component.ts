@@ -5,11 +5,10 @@ import { ArticleListItemComponent } from '../article-list-item/article-list-item
 import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
 
 @Component({
-  selector: 'art-articles-list',
-  standalone: true,
-  templateUrl: './articles-list.component.html',
-  styleUrl: './articles-list.component.scss',
-  imports: [ArticleListItemComponent, PaginationComponent],
+    selector: 'art-articles-list',
+    templateUrl: './articles-list.component.html',
+    styleUrl: './articles-list.component.scss',
+    imports: [ArticleListItemComponent, PaginationComponent]
 })
 export class ArticlesListComponent {
   articlesPagination = input.required<Pagination<Article>>();

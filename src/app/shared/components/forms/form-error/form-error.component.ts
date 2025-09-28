@@ -4,11 +4,10 @@ import { ValidationErrorPipe } from '../../../../utils/pipes/validation-error.pi
 import { ValidationErrors } from '@angular/forms';
 
 @Component({
-  selector: 'art-form-error',
-  standalone: true,
-  imports: [LucideAngularModule, ValidationErrorPipe],
-  templateUrl: './form-error.component.html',
-  styleUrl: './form-error.component.scss',
+    selector: 'art-form-error',
+    imports: [LucideAngularModule, ValidationErrorPipe],
+    templateUrl: './form-error.component.html',
+    styleUrl: './form-error.component.scss'
 })
 export class FormErrorComponent {
   formErrors = input.required<ValidationErrors>();

@@ -15,20 +15,19 @@ import { ArrowBigLeft, LucideAngularModule, Plus } from 'lucide-angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'art-create-article-page',
-  standalone: true,
-  templateUrl: './create-article-page.component.html',
-  styleUrl: './create-article-page.component.scss',
-  imports: [
-    CommonModule,
-    ButtonComponent,
-    InputComponent,
-    ListPillComponent,
-    TextAreaComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    LucideAngularModule,
-  ],
+    selector: 'art-create-article-page',
+    templateUrl: './create-article-page.component.html',
+    styleUrl: './create-article-page.component.scss',
+    imports: [
+        CommonModule,
+        ButtonComponent,
+        InputComponent,
+        ListPillComponent,
+        TextAreaComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        LucideAngularModule,
+    ]
 })
 export class CreateArticlePage {
   articleTypes = signal<PillOption[]>([

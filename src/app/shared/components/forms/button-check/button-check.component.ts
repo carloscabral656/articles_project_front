@@ -10,10 +10,9 @@ import {
 import { Check, LucideAngularModule } from 'lucide-angular';
 
 @Component({
-  selector: 'art-button-check',
-  standalone: true,
-  imports: [CommonModule, LucideAngularModule],
-  templateUrl: './button-check.component.html',
+    selector: 'art-button-check',
+    imports: [CommonModule, LucideAngularModule],
+    templateUrl: './button-check.component.html'
 })
 export class ButtonCheckComponent {
   label = input.required<string>();
