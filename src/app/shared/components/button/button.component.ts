@@ -4,9 +4,10 @@ import { ButtonProps, buttonStyles } from './button.variants.js';
 import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
-    selector: 'art-button',
-    imports: [CommonModule, LucideAngularModule],
-    templateUrl: 'button.component.html'
+  selector: 'art-button',
+  standalone: true,
+  imports: [CommonModule, LucideAngularModule],
+  templateUrl: 'button.component.html',
 })
 export class ButtonComponent {
   variant = input<ButtonProps['variant']>();

@@ -19,18 +19,19 @@ import { ArrowRightSquare } from 'lucide-angular';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'art-articles-list-page',
-    templateUrl: './articles-list-page.component.html',
-    styleUrl: './articles-list-page.component.scss',
-    imports: [
-        CommonModule,
-        ButtonComponent,
-        ListPillComponent,
-        InputComponent,
-        ArticlesListComponent,
-        FormsModule,
-        ReactiveFormsModule,
-    ]
+  selector: 'art-articles-list-page',
+  standalone: true,
+  templateUrl: './articles-list-page.component.html',
+  styleUrl: './articles-list-page.component.scss',
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    ListPillComponent,
+    InputComponent,
+    ArticlesListComponent,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class ArticlesListPage {
   articleTypes = signal<PillOption[]>([

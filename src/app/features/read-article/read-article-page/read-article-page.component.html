@@ -1,28 +1,8 @@
 <div class="px-20 pt-10">
-  <h1 class="font-bold text-[32px] leading-[40px]">Título do artigo</h1>
-  <art-article-publication-info [publicationInfo]="data" />
+  <h1 class="font-bold text-[32px] leading-[40px]">{{ article()?.title }}</h1>
+  <art-article-publication-info [publicationInfo]="articleAuthorData()" />
   <div class="mt-5">
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio quis
-    mollitia dolorem voluptatem voluptas nesciunt, officiis aperiam perspiciatis
-    autem reprehenderit blanditiis ab ut aspernatur cumque accusamus accusantium
-    repellendus quia quasi? Lorem ipsum, dolor sit amet consectetur adipisicing
-    elit. Optio quis mollitia dolorem voluptatem voluptas nesciunt, officiis
-    aperiam perspiciatis autem reprehenderit blanditiis ab ut aspernatur cumque
-    accusamus accusantium repellendus quia quasi? Lorem ipsum, dolor sit amet
-    consectetur adipisicing elit. Optio quis mollitia dolorem voluptatem
-    voluptas nesciunt, officiis aperiam perspiciatis autem reprehenderit
-    blanditiis ab ut aspernatur cumque accusamus accusantium repellendus quia
-    quasi? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio quis
-    mollitia dolorem voluptatem voluptas nesciunt, officiis aperiam perspiciatis
-    autem reprehenderit blanditiis ab ut aspernatur cumque accusamus accusantium
-    repellendus quia quasi? Lorem ipsum, dolor sit amet consectetur adipisicing
-    elit. Optio quis mollitia dolorem voluptatem voluptas nesciunt, officiis
-    aperiam perspiciatis autem reprehenderit blanditiis ab ut aspernatur cumque
-    accusamus accusantium repellendus quia quasi? Lorem ipsum, dolor sit amet
-    consectetur adipisicing elit. Optio quis mollitia dolorem voluptatem
-    voluptas nesciunt, officiis aperiam perspiciatis autem reprehenderit
-    blanditiis ab ut aspernatur cumque accusamus accusantium repellendus quia
-    quasi?
+    {{ article()?.content }}
   </div>
   <div class="mt-5 flex flex-col gap-3">
     <art-text-area
@@ -33,6 +13,6 @@
   </div>
 
   <div class="mt-10">
-    <art-article-comments-list />
+    <art-article-comments-list [comments]="article()?.comments ?? []" />
   </div>
 </div>

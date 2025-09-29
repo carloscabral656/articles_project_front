@@ -1,1 +1,10 @@
-<art-article-comment />
+<div class="flex flex-col gap-5 w-full pl-3 border-l-[1px]">
+  @for(comment of comments(); track comment.id) {
+  <art-article-comment [comment]="comment"></art-article-comment>
+
+  @if(comment.replies.length > 0) {
+  <div class="ml-[65px]">
+    <art-article-comments-list [comments]="comment.replies" />
+  </div>
+  } }
+</div>
