@@ -31,6 +31,9 @@ export class ReadArticleStore extends ComponentStore<ArticleState> {
     const reply1 = new Comment('Obrigado, Alice!', 'Carlos Eduardo');
     comment1.addReply(reply1);
 
+    const reply2 = new Comment('Obrigado, Carlos!', 'Alice');
+    reply1.addReply(reply2);
+
     exampleArticle.addComment(comment1);
     exampleArticle.addComment(comment2);
 
